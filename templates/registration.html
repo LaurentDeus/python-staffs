@@ -12,46 +12,48 @@
                         <div class="card-body p-5">
                             <h2 class="text-uppercase text-center mb-5">Create an account</h2>
 
-                            <form>
+                            <form action="" method="post">
 
                                 <div data-mdb-input-init class="form-outline mb-4">
-                                    <input type="text" id="form3Example1cg" class="form-control form-control-lg" />
+                                    <input required type="text" id="form3Example1cg" class="form-control form-control-lg" name="firstname"/>
                                     <label class="form-label" for="form3Example1cg">First Name</label>
                                 </div>
 
-                                
+
                                 <div data-mdb-input-init class="form-outline mb-4">
-                                    <input type="text" id="form3Example1cg" class="form-control form-control-lg" />
+                                    <input required type="text" id="form3Example5cg" class="form-control form-control-lg" name="lastname" />
                                     <label class="form-label" for="form3Example5cg">Last Name</label>
                                 </div>
 
                                 <div data-mdb-input-init class="form-outline mb-4">
-                                    <input type="phone" id="form3Example6cg" class="form-control form-control-lg" />
-                                    <label class="form-label" for="form3Example3cg">Phone</label>
+                                    <input required type="text" id="form3Example6cg" class="form-control form-control-lg" name="phone"/>
+                                    <label class="form-label" for="form3Example6cg">Phone</label>
                                 </div>
 
-                                
+
                                 <div data-mdb-input-init class="form-outline mb-4">
-                                    <input type="email" id="form3Example3cg" class="form-control form-control-lg" />
+                                    <input required type="email" id="form3Example3cg" class="form-control form-control-lg" name="email" />
                                     <label class="form-label" for="form3Example3cg">Your Email</label>
                                 </div>
 
                                 <div data-mdb-input-init class="form-outline mb-4">
-                                    <input type="password" id="form3Example7cg" class="form-control form-control-lg" />
-                                    <label class="form-label" for="form3Example4cg">Password</label>
+                                    <input required type="password" id="form3Example7cg" class="form-control form-control-lg" name="password1" />
+                                    <label class="form-label" for="form3Example7cg">Password</label>
                                 </div>
 
                                 <div data-mdb-input-init class="form-outline mb-4">
-                                    <input type="password" id="form3Example4cdg" class="form-control form-control-lg" />
+                                    <input required type="password" id="form3Example4cdg" class="form-control form-control-lg" name="password2" />
                                     <label class="form-label" for="form3Example4cdg">Repeat your password</label>
 
                                     <div class="d-flex justify-content-center">
-                                        <button type="button" data-mdb-button-init data-mdb-ripple-init
-                                            class="btn btn-success btn-block btn-lg gradient-custom-4 text-body">Register</button>
+                                        <input type="submit" data-mdb-button-init data-mdb-ripple-init
+                                            class="btn btn-success btn-block btn-lg gradient-custom-4 text-body"
+                                           value="Register"/>
                                     </div>
 
-                                    <p class="text-center text-muted mt-5 mb-0">Have already an account? <a href="{{url_for('login')}}"
-                                            class="fw-bold text-body"><u>Login here</u></a></p>
+                                    <p class="text-center text-muted mt-5 mb-0">Have already an account? <a
+                                            href="{{url_for('login')}}" class="fw-bold text-body"><u>Login here</u></a>
+                                    </p>
 
                             </form>
 
