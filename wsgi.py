@@ -2,6 +2,7 @@ from flask import Flask, redirect, render_template, request, url_for, session
 from utilities import password_match
 from cruds import create_user, is_valid_user
 import os
+from auth import session_required
 
 
 app = Flask(__name__)
@@ -10,23 +11,24 @@ app.config['SECRET_KEY'] = os.urandom(32)
 
 @app.route('/')
 @app.route('/home')
+@session_required
 def home():
     return session.get('user_id') + ' You are authenticated'
 
 
 @app.route('/login', methods=['GET', 'POST'])
 def login():
-    if request.method == "GET":
-        if 'user_id' in session:
-            session.pop('user_id')
-        return render_template('login.html')
-
-    user_credentials = request.form
-    user = is_valid_user(user_credentials.get('email'),
+    session.pop('user_id',None)
+    if request.method == "POST":
+        user_credentials = request.form
+        user = is_valid_user(user_credentials.get('email'),
                          user_credentials.get('password'))
-    if user:
-        session['user_id'] = user.credential
-        return redirect(url_for('home'))
+        if user:
+            session['user_id'] = user.credential
+            return redirect(url_for('home'))
+
+    return render_template('login.html')
+
 
 @app.route('/registration', methods=['POST', 'GET'])
 def registration():
