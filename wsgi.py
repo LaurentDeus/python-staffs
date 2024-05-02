@@ -15,6 +15,12 @@ app.config['SECRET_KEY'] = os.urandom(32)
 def home():
     return session.get('user_id') + ' You are authenticated'
 
+@app.route('/logout')
+def logout():
+    session.pop('user_id',None)
+    redirect(url_for('landing_page.html'))
+
+
 
 @app.route('/login', methods=['GET', 'POST'])
 def login():
