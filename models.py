@@ -19,11 +19,11 @@ class Booker(Base):
         CheckConstraint('role IN ("Venue_Manager","Booker")',
                         name='valid_role'),
     )
-    credentail: Mapped[str] = mapped_column(
+    credential: Mapped[str] = mapped_column(
         ForeignKey('credentials.email'))  # ondelelete and onupdate
     id: Mapped[int] = mapped_column(primary_key=True)
-    first_name: Mapped[str]
-    last_name: Mapped[str]
+    firstname: Mapped[str]
+    lastname: Mapped[str]
     phone: Mapped[str]
     role: Mapped[str]
 
