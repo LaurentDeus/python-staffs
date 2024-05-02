@@ -20,3 +20,4 @@ def create_user(firstname:str, lastname:str, phone:str, email:str, password:str,
                              phone=phone, credential=user_credential.email, role=role)
         dbsession.add(user)
         dbsession.commit()
+        return user
